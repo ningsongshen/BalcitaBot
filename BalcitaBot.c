@@ -13,9 +13,9 @@ task main()
 	int vert_stick, hor_stick;
 	int left_motors, right_motors;
 	int arms;
-	int turn_cur, turn_target, turn_error, prev_error = 0;
-	float Kp = 1, Ki = 1, Kd = 1, MV = 0;
-	float Po, Io, Do;
+	int turn_cur, turn_target, turn_error, prev_turn_error = 0;
+	float Kp = 0.1, Ki = 0.01, MV = 0;
+	float Po, Io;
 	float I_integral = 0;
 
 	// SET UP GYRO
@@ -64,14 +64,18 @@ task main()
 			}
 			// find current error (deviation from target)
 			turn_error = turn_target - turn_cur;
-			writeDebugStream("%d \n", turn_error);
+			// calculat PI values
 			Po = Kp * turn_error;
 			I_integral += turn_error;
 			Io = Ki * I_integral;
-			Do = Kd * turn_error - prev_error;
-			MV = Po + Io + Do;
-			writeDebugStreamLine("P: %.2f\tI: %.2f\tD: %.2f\tMV: %.2f", Po, Io, Do, MV);
-			prev_error = turn_error;
+			// find 'Manipulated Value'
+			MV = Po + Io;
+			writeDebugStreamLine("error: %d\tP: %.2f\tI: %.2f\tMV: %.2f", turn_error, Po, Io, MV);
+			prev_turn_error = turn_error;
+			// TODO: make it do stuff
+		} else {
+			turn_error = 0;
+			I_integral = 0;
 		}
 
 
