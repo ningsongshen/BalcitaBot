@@ -35,10 +35,10 @@ task main()
 		// SHOOTING
 		// buttons
 		if(vexRT[Btn6U] == 1){
-			arms = 128;
+			arms = -128;
 		}
 		else if(vexRT[Btn6D] == 1){
-			arms = -128;
+			arms = 128;
 		}
 		else{
 			arms = 0;
