@@ -45,7 +45,7 @@ task main()
 			arms = 128;
 		}
 		else{
-			arms = lifting;
+			arms = -lifting;
 		}
 
 		// set speeds
