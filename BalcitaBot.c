@@ -13,6 +13,7 @@ task main()
 	int vert_stick, hor_stick;
 	int left_motors, right_motors;
 	int arms;
+	int lifting;
 	while(true){
 		// DRIVING
 		// inputs
@@ -34,15 +35,19 @@ task main()
 
 		// SHOOTING
 		// buttons
-		if(vexRT[Btn6U] == 1){
+
+		lifting = vexRT[Ch2Xmtr2];
+
+		if(vexRT[Btn6UXmtr2] == 1){
 			arms = -128;
 		}
-		else if(vexRT[Btn6D] == 1){
+		else if(vexRT[Btn6DXmtr2] == 1){
 			arms = 128;
 		}
 		else{
-			arms = 0;
+			arms = lifting;
 		}
+
 		// set speeds
 		motor[arm1] = arms;
 		motor[arm2] = arms;
