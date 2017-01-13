@@ -134,7 +134,7 @@ task usercontrol(){
 			arms = 128;
 		}
 		else{
-			arms = vexRT[Ch2Xmtr2];
+			arms = -(vexRT[Ch2Xmtr2]);
 		}
 		// set speeds
 		motor[arm1] = arms;
