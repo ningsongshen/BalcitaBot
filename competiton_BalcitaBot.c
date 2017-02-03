@@ -55,24 +55,23 @@ void pre_auton(){
 
 task autonomous(){
 	//forwardss
-  motor[left_wheels] = 127;
-  motor[right_wheels] = -127;
-  wait1Msec(3000);
+  motor[left_wheels] = -42;
+  motor[right_wheels] = 42;
+  wait1Msec(8000);
   motor[left_wheels] = 0;
   motor[right_wheels] = 0;
   wait1Msec(300);
-  motor[arm1] = 100;
-	motor[arm2] = 100;
-	motor[arm3] = 100;
-	motor[arm4] = 100;
-	motor[arm5] = 100;
-	wait1Msec(800);
+  motor[arm1] = -100;
+	motor[arm2] = -100;
+	motor[arm3] = -100;
+	motor[arm4] = -100;
+	motor[arm5] = -100;
+	wait1Msec(2000);
 	motor[arm1] = 0;
 	motor[arm2] = 0;
 	motor[arm3] = 0;
 	motor[arm4] = 0;
 	motor[arm5] = 0;
-
 }
 
 /*---------------------------------------------------------------------------*/
@@ -94,7 +93,7 @@ task usercontrol(){
 		// DRIVING
 		// inputs
 		vert_stick = vexRT[Ch3];
-		hor_stick = vexRT[Ch1];
+		hor_stick = round(vexRT[Ch1] * 0.78);
 		// deadzone
 		if(-13 < vert_stick && vert_stick < 13){
 			vert_stick = 0;
@@ -112,10 +111,10 @@ task usercontrol(){
 		// SHOOTING
 		// buttons
 		if(vexRT[Btn6U] == 1||vexRT[Btn6UXmtr2] == 1){
-			arms = -128;
+			arms = -100;
 		}
 		else if(vexRT[Btn6D] == 1||vexRT[Btn6DXmtr2] == 1){
-			arms = 128;
+			arms = 100;
 		}
 		else{
 			arms = -(vexRT[Ch2Xmtr2]);

@@ -9,21 +9,29 @@
 
 task main()
 {
-	motor[left_wheels] = 127;
-  motor[right_wheels] = -127;
-  wait1Msec(3000);
+	while(true){
+		if(vexRT[Btn7U] == 1){
+			break;
+			wait1Msec(1);
+		}
+	}
+
+  motor[left_wheels] = -22;
+  motor[right_wheels] = 22;
+  wait1Msec(8000);
   motor[left_wheels] = 0;
   motor[right_wheels] = 0;
   wait1Msec(300);
-  motor[arm1] = 100;
-	motor[arm2] = 100;
-	motor[arm3] = 100;
-	motor[arm4] = 100;
-	motor[arm5] = 100;
-	wait1Msec(800);
+  motor[arm1] = -100;
+	motor[arm2] = -100;
+	motor[arm3] = -100;
+	motor[arm4] = -100;
+	motor[arm5] = -100;
+	wait1Msec(2000);
 	motor[arm1] = 0;
 	motor[arm2] = 0;
 	motor[arm3] = 0;
 	motor[arm4] = 0;
 	motor[arm5] = 0;
+
 }
