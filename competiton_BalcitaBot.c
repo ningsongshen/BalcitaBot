@@ -1,4 +1,3 @@
-#pragma config(Sensor, dgtl1,  rear_end_detection, sensorTouch)
 #pragma config(Motor,  port3,           right_wheels,  tmotorVex393HighSpeed_MC29, openLoop)
 #pragma config(Motor,  port4,           left_wheels,   tmotorVex393HighSpeed_MC29, openLoop)
 #pragma config(Motor,  port5,           arm1,          tmotorVex393HighSpeed_MC29, openLoop)
