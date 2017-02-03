@@ -58,36 +58,21 @@ task autonomous(){
 	//forwardss
   motor[left_wheels] = 127;
   motor[right_wheels] = -127;
+  wait1Msec(3000);
+  motor[left_wheels] = 0;
+  motor[right_wheels] = 0;
   wait1Msec(300);
-  //deploy arm
-	motor[arm1] = -127;
-	motor[arm2] = -127;
-	motor[arm3] = -127;
-	motor[arm4] = -127;
-	motor[arm5] = -127;
-	wait1Msec(1000);
+  motor[arm1] = 100;
+	motor[arm2] = 100;
+	motor[arm3] = 100;
+	motor[arm4] = 100;
+	motor[arm5] = 100;
+	wait1Msec(800);
 	motor[arm1] = 0;
 	motor[arm2] = 0;
 	motor[arm3] = 0;
 	motor[arm4] = 0;
 	motor[arm5] = 0;
-	//approach fence
-	wait1Msec(5000);
-	//start smacking
-	for(int i = 0; i < 3; i++){
-		motor[arm1] = -127;
-		motor[arm2] = -127;
-		motor[arm3] = -127;
-		motor[arm4] = -127;
-		motor[arm5] = -127;
-		wait1Msec(1000);
-	  motor[arm1] = 0;
-		motor[arm2] = 0;
-		motor[arm3] = 0;
-		motor[arm4] = 0;
-		motor[arm5] = 0;
-		wait1Msec(1000);
-	}
 
 }
 
